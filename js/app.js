@@ -11,7 +11,7 @@
 
   TP.useLive = () => (TP.api = window.SupabaseAPI);
   TP.demoBanner = () =>
-    TP.api.mode === "demo"
+    TP.api.mode === "demo" && !new URLSearchParams(location.search).has("clean")
       ? `<div class="demo-banner">DEMO MODE — sample data only, nothing is saved. <button id="exitDemo">Exit demo</button></div>`
       : "";
   document.addEventListener("click", (e) => {
